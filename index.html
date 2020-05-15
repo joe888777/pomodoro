@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/tomato.ico">
+    <meta name='description' content='番茄鐘計時器' />
+
+
+    <meta property="og:title" content="Pomodoro" />
+    <meta property="og:description" content="番茄鐘計時器">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://joe888777.github.io/Pomodoro/" />
+    <meta property="og:image" content="Img/Img.png" />
+    <title>PONODORO</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header"> 番茄鐘 </div>
+        
+        <div class="app" id="app">
+            <div class="menu">
+                <ul>
+                     <li><button @click="currentView='channel-1'">記事</button> </li>
+                    <li><button @click="currentView='channel-2'">番茄鐘時間</button>    </li>
+                    <li><button @click="currentView='channel-3'">週期</button> </li>
+                 </ul>
+                 <div class='title'>
+                    <h2>P O M O D O R O</h2>
+                    </div>
+             </div>
+            <div class="body">
+                <keep-alive> <component :is="currentView" :pnote="note" :pnotes="notes" :ptimer="25" :pcyc="4"></component></keep-alive>
+            </div>
+            <div class="alarm">
+                <div class="time"></div>
+                <div class="circle">
+                    <div class="timer">{{mindis}}:{{secdis}}
+                        <span>{{state}}</span>
+                    </div>
+                    
+                </div>
+                <button class="start" @click.prevent="BtnClick" ><span>{{Btndis}}</span> </button>
+            </div>
+        </div>
+    <audio src="sounds/click.mp3" class="clsnd"></audio>
+    <audio src="sounds/alarm.mp3" class="almsnd"></audio>
+    </div>
+    <script type="text/x-template" id="body_note">
+        <div class="note">
+            <div class="notitle">記事</div>
+            <div class='notenew'>
+                <input type="text" v-model="cnote" placeholder=:pnote>
+                <button @click="createnote(cnote)">+ADD</button>
+            </div>
+            
+            <ul class="newnote" style="list-style:none;">
+                <li v-for="Note in cnotes" ><span>{{Note}}</span>  <button @click.prevent="deletenote(Note)">完成</button>   </li>
+            </ul>
+        </div>
+    </script>
+
+
+
+
+    <script type="text/x-template" id="body_time">
+        <div class="timesetting" >
+            <label for="time_text">番茄鐘時間</label>
+            <div class="timesetinp">
+                <input type="text" placeholder="時間" v-model="time" id="time_text" value="25">
+                <label for="">min</label> 
+            </div>
+           <button @click="ChangeTime" class="stn"> setting</button>
+            <ul class="timesetting">
+            </ul>
+        </div>
+        
+    </script>
+    <script type="text/x-template" id="body_cycle">
+        <div class="cycle">
+            <h1>週期</h1>
+            <div class="cycinp">
+                <input type="text" v-model="cyc">
+                <label for="">次一循環</label>
+            </div>
+            
+            <button @click.prevent="ChangeCycle(cyc)">設定</button>
+        </div>
+        
+
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+    <script src="js/toma.js"></script>
+</body>
+</html>
