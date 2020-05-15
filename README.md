@@ -4,8 +4,8 @@
   <li>Vue.js</li>
   <li> Vue props</li>
   <li>Vue component</li>
-  <li>Javascript</li>
-  <li> HTML ES6</li>
+  <li>Javascript ES6</li>
+  <li> HTML5</li>
   <li>CSS</li>
 </ul>
   
