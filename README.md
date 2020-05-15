@@ -1,11 +1,14 @@
 #Pomodoro
 <h1>開發技術</h1>
-  Vue.js
-    Vue props
-    Vue component
-  Javascript
-  HTML ES6
-  CSS
+<ul>
+  <li>Vue.js</li>
+  <li> Vue props</li>
+  <li>Vue component</li>
+  <li>Javascript</li>
+  <li> HTML ES6</li>
+  <li>CSS</li>
+</ul>
+  
   <h1>功能</h1>
   <ul>
 <li>倒數計時，預設25分鐘後有5分鐘的休息時間，4次循環後有一次15分鐘的休息時間</li>
