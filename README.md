@@ -2,8 +2,8 @@
 <h1>開發技術</h1>
 <ul>
   <li>Vue.js</li>
-  <li> Vue props</li>
-  <li>Vue component</li>
+  <li>使用 Vue props將變數從parent傳到child用</li>
+  <li>使用Vue component切換頁面</li>
   <li>Javascript ES6</li>
   <li> HTML5</li>
   <li>CSS</li>
