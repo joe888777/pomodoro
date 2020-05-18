@@ -105,17 +105,18 @@ new Vue({
                 if(this.state==='WORK'&&this.countDown<=0){
                     document.querySelector(".almsnd").play();
                     this.cyccount+=1;
-                    this.state='BREAK';this.start;
+                    this.state='BREAK';
                     this.start=!this.start;
                     this.stateChange();
                 }
                 else{
                     if(this.countDown<=0){
+                        this.state='WORK';
                         document.querySelector(".almsnd").play();
                         this.start=!this.start;
                         this.stateChange();
                     }
-                    this.state='WORK';
+                    
                     
                 }
             }
