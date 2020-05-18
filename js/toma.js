@@ -142,10 +142,8 @@ new Vue({
                         this.countDown=300;
                         
                     }
-                    break;
-                
+                    break;  
             } 
-            console.log('statechange',this.countDown)
         },
         BtnClick(){
             this.start=!this.start;
