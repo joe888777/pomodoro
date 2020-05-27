@@ -1,13 +1,17 @@
 *{
     font-family: '微軟正黑體';
     font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 *:focus{
     outline:none;
     box-shadow: -3px 3px 3px aqua,3px -3px 3px aqua,
     3px 3px 3px aqua,-3px -3px 3px aqua;
 }
-
+body{
+    background:#ff8800 ;;
+}
 .container{
     box-sizing: border-box;
     display: flex;
@@ -15,7 +19,7 @@
     padding: 10px;
     width: 100%;
     height: 100%;
-    background-color:#ff8800 ;
+    
 }
 .header{
     
@@ -30,17 +34,19 @@
     box-sizing: border-box;
 }
 .app{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: minmax(200px,1fr) auto minmax(400px,3fr);
+    column-gap: 30px;
+    box-sizing: border-box;
+    border:2px solid gold;
     width: 100%;
     height: 50%;
-    align-content: space-between;
 }
 .menu{
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    border: 2px solid gold;
+    border-right: 2px solid gold;
     width: 200px;
     align-items: center;
     
@@ -55,28 +61,26 @@
     height: 400px;
     width:100%;
 }
-.title li{
+.title > ul > li{
     font-size: 40px;
 }
-.title h2{
+.title > h2{
     writing-mode: vertical-rl;
     font-size: 40px;
     
 }
-.menu ul{
+.menu > ul{
     height: 150px;
     margin: 10px;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
     list-style: none;
     display:flex;
     flex-direction: column;
     justify-content: space-around;
 }
-.menu ul li button{
+.menu > ul > li > button{
     margin-top: 35px;
     border-radius: 999em;
     border: none;
@@ -86,31 +90,37 @@
     color: #fff;
     font-size: 20px;
 }
-.menu ul li button:hover{
+.menu > ul > li > button:hover{
     color:#000;
 }
 .body{
     padding-top: 30px;
-    width: 50%;
+    width: 100%;
     height: 100%;
-    border-top: 2px solid gold;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 }
 .note{
+    width: 100%;
+    height: 100%;
+    
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     align-items: center;
     justify-content: start;
 }
-.note .notitle{
+.note > .notitle{
     font-size: 50px;
     font-weight: bold;
     margin: 0;
 }
-.notenew{
+.note > .notenew{
     margin-top: 20px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
 }
 .note button{
@@ -124,37 +134,36 @@
     color: #fff;
     border-radius: 999em;
 }
-.note input{
-    margin-left: 50px;
+.notenew > input{
+    padding-left: 20px;
     border-radius: 1em;
     font-size: 20px;
-    padding-left: 10px;
     border: none;
     color: #fff;
     height: 30px;
-    width: 250px;
+    width: 60%;
 
     background-color: #aa7700;
 }
 
 .newnote li{
     display: flex;
-    margin-top: 5px;
+    margin-top: 10px;
     font-size: 20px;
     border-radius: 0.7em;
     border-bottom: honeydew solid 2px;
     padding-left: 20px;
     
 }
-.newnote li:hover{
+.newnote  > li:hover{
     background: #000;
     color: #fff;
 }
-.newnote li button{
+.newnote > li > button{
     height: 100%;
-   
+    width: 80px;
 }
-.newnote li button:hover{
+.newnote > li:hover > button{
     background-color: bisque;
     color: black;
 }
@@ -163,7 +172,7 @@
     flex-direction: column;
     align-items: center;
 }
-.timesetting label{
+.timesetting > label{
     font-size: 50px;
     font-weight: bold;
 
@@ -171,18 +180,17 @@
 .timesetinp{
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-top: 80px;
-    display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
 }
-.timesetinp input{
+.timesetinp > input{
     padding-left: 20px;
     height: 30px;
-    width: 250px;
+    width: 50%;
     font-size: 20px;
     border-radius: 9em;
-    border: whitesmoke;
+    border: none;
     color: #fff;
     background-color: #aa7700;
 }
@@ -196,7 +204,7 @@
     background-color: #aa7700;
     color: #fff;
     font-size: 20px;
-    width: 270px;
+    width: 50%;
     height: 60px;
     border:none;
     border-bottom: #fff solid 2px;
@@ -204,7 +212,7 @@
 
 }
 .timesetting .stn:hover{
-    width: 290px;
+    width: 60%;
     height: 70px;
     font-size: 30px;
 }
@@ -213,7 +221,7 @@
     flex-direction: column;
     align-items: center;
 }
-.cycle h1{
+.cycle > h1{
     font-size: 50px;
     font-weight: bold;
 
@@ -223,43 +231,48 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
 }
-.cycinp input{
+.cycinp > input{
     font-size: 20px;
     height: 30px;
-    width: 150px;
+    width: 50%px;
     background-color: #AA7700;
     border:none;
     border-radius: 9em;
     padding-left: 20px;
     color:#fff;
 }
-.cycinp label{
+.cycinp > label{
     font-size: 30px;
     font-weight: bold;
     margin-left: 20px;
 }
-.cycle button{
+.cycle > button{
     border-radius: 9em;
     font-weight: bold;
     margin-top: 30px;
     height: 50px;
-    width: 200px;
+    width: 40%;
     border:none;
     border-bottom: #fff 2px solid;
     background-color: #aa7700;
     font-size: 30px;
-}.cycle button:hover{
+}.cycle > button:hover{
     height: 60px;
-    width: 230px;
+    width: 50%;
     font-size: 40px;
 }
 .alarm{
     
-    border: 2px solid gold;
-    width: 500px;
-    height: 500px;
+    border-left: 2px solid gold;
     
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     
 
@@ -272,8 +285,8 @@
     justify-content: center;
     flex-direction: column;
     border: 10px solid gold ;
-    width:70%;
-    height: 70%;
+    width:60%;
+    height: 60%;
     border-radius: 999em;
     margin-left: auto;
     margin-right: auto;
@@ -299,7 +312,7 @@
     font-size: 20px;
     height: 15%;
     width: 60%;
-    border-radius: 999em;
+    border-radius: 9em;
     align-items: center;
     margin-right: auto;
     margin-left: auto;
